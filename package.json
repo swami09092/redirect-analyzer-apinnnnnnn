@@ -1,0 +1,16 @@
+{
+  "name": "redirect-analyzer-apinnnnnnn",
+  "version": "1.0.0",
+  "description": "A professional, monetizable FastAPI-based service for analyzing URL redirect chains with detailed analytics, intelligence features, and built-in rate limiting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "undici": "^7.16.0",
+    "wrangler": "^4.40.3"
+  }
+}

@@ -1,0 +1,438 @@
+{
+  "platform": "Cloudflare Workers",
+  "language": "JavaScript",
+  "pythonUsed": false,
+  "cloudflareReady": true,
+  "testDate": "2025-10-18T15:48:33.854Z",
+  "baseUrl": "http://localhost:5000",
+  "totalTests": 34,
+  "passed": 33,
+  "failed": 1,
+  "successRate": "97.1%",
+  "realUrlsTested": {
+    "bitly": "https://bit.ly/3nxjKQ2",
+    "youtube_short": "https://youtu.be/dQw4w9WgXcQ",
+    "http_to_https": "http://github.com",
+    "google_redirect": "http://google.com",
+    "www_redirect": "http://www.github.com",
+    "potential_phishing": "http://example.com/login",
+    "amazon_affiliate": "https://amazon.com/dp/B08N5WRWNW",
+    "google_robots": "https://google.com",
+    "github_robots": "https://github.com",
+    "trusted_domain": "https://github.com",
+    "responsive_site": "https://github.com"
+  },
+  "results": [
+    {
+      "num": 1,
+      "endpoint": "/",
+      "method": "GET",
+      "status": 200,
+      "time": "39ms",
+      "passed": true,
+      "notes": "Welcome page"
+    },
+    {
+      "num": 2,
+      "endpoint": "/health",
+      "method": "GET",
+      "status": 200,
+      "time": "4ms",
+      "passed": false,
+      "notes": "Platform: undefined, Endpoints: undefined"
+    },
+    {
+      "num": 3,
+      "endpoint": "/analyze",
+      "method": "POST",
+      "status": 200,
+      "time": "625ms",
+      "passed": "http://www.google.com/",
+      "notes": "http://google.com → http://www.google.com/ (2 hops)"
+    },
+    {
+      "num": 4,
+      "endpoint": "/api/analyze",
+      "method": "POST",
+      "status": 200,
+      "time": "1360ms",
+      "passed": "https://github.com/",
+      "notes": "HTTP→HTTPS: https://github.com/"
+    },
+    {
+      "num": 5,
+      "endpoint": "/api/analyze/advanced",
+      "method": "POST",
+      "status": 401,
+      "time": "5ms",
+      "passed": true,
+      "notes": "Advanced analysis (Auth required)"
+    },
+    {
+      "num": 6,
+      "endpoint": "/api/analytics/domain/github.com",
+      "method": "GET",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "Domain analytics (Auth required)"
+    },
+    {
+      "num": 7,
+      "endpoint": "/api/analytics/url/http%3A%2F%2Fgithub.com",
+      "method": "GET",
+      "status": 401,
+      "time": "6ms",
+      "passed": true,
+      "notes": "URL analytics (Auth required)"
+    },
+    {
+      "num": 8,
+      "endpoint": "/api/seo/analysis",
+      "method": "POST",
+      "status": 401,
+      "time": "3ms",
+      "passed": true,
+      "notes": "SEO analysis (Auth required)"
+    },
+    {
+      "num": 9,
+      "endpoint": "/api/browser/quick-check",
+      "method": "POST",
+      "status": 401,
+      "time": "3ms",
+      "passed": true,
+      "notes": "Browser check (Auth required)"
+    },
+    {
+      "num": 10,
+      "endpoint": "/api/batch/quick-analyze",
+      "method": "POST",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "Batch quick (Auth required)"
+    },
+    {
+      "num": 11,
+      "endpoint": "/api/analyze/malware-scan",
+      "method": "POST",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "Malware scan (Auth required)"
+    },
+    {
+      "num": 12,
+      "endpoint": "/api/network/detection",
+      "method": "POST",
+      "status": 401,
+      "time": "3ms",
+      "passed": true,
+      "notes": "Network detection (Auth required)"
+    },
+    {
+      "num": 13,
+      "endpoint": "/api/revenue/optimization",
+      "method": "POST",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "Revenue opt (Auth required)"
+    },
+    {
+      "num": 14,
+      "endpoint": "/api/analyze/mobile-comparison",
+      "method": "POST",
+      "status": 401,
+      "time": "6ms",
+      "passed": true,
+      "notes": "Mobile compare (Auth required)"
+    },
+    {
+      "num": 15,
+      "endpoint": "/api/bulk/analyze",
+      "method": "POST",
+      "status": 200,
+      "time": "1201ms",
+      "passed": true,
+      "notes": "Bulk completed"
+    },
+    {
+      "num": 16,
+      "endpoint": "/api/validate",
+      "method": "POST",
+      "status": 200,
+      "time": "173ms",
+      "passed": [
+        {
+          "content_type": "text/html; charset=ISO-8859-1",
+          "final_url": "http://www.google.com/",
+          "response_time_ms": 73.7,
+          "status": "accessible",
+          "status_code": 200,
+          "url": "http://google.com"
+        },
+        {
+          "content_type": "text/html; charset=utf-8",
+          "final_url": "https://github.com/",
+          "response_time_ms": 34.52,
+          "status": "accessible",
+          "status_code": 200,
+          "url": "http://github.com"
+        },
+        {
+          "content_type": "text/html; charset=utf-8",
+          "final_url": "https://github.com/",
+          "response_time_ms": 41.1,
+          "status": "accessible",
+          "status_code": 200,
+          "url": "https://github.com"
+        }
+      ],
+      "notes": "Validated 3 URLs, 3 accessible"
+    },
+    {
+      "num": 17,
+      "endpoint": "/api/security/enhanced-scan",
+      "method": "POST",
+      "status": 200,
+      "time": "1010ms",
+      "passed": true,
+      "notes": "Risk: 40/100, Threats: 0"
+    },
+    {
+      "num": 18,
+      "endpoint": "/api/pricing",
+      "method": "GET",
+      "status": 200,
+      "time": "3ms",
+      "passed": {
+        "enterprise": {
+          "api_key_required": true,
+          "bulk_limit": 10000,
+          "bulk_requests_per_day": "Unlimited",
+          "daily_limit": 50000,
+          "features": [
+            "All Professional features",
+            "Bulk processing (10,000 URLs per job)",
+            "1-year historical data",
+            "Custom integrations",
+            "Dedicated support engineer",
+            "99.9% uptime SLA",
+            "Custom rate limits"
+          ],
+          "historical_data": "365 days",
+          "monthly_limit": 1000000,
+          "name": "Enterprise",
+          "price": 299,
+          "price_display": "$299/month"
+        },
+        "free": {
+          "api_key_required": false,
+          "bulk_limit": 0,
+          "bulk_requests_per_day": 10,
+          "daily_limit": 100,
+          "features": [
+            "Basic URL analysis",
+            "Redirect chain tracing",
+            "Security scoring",
+            "Community support"
+          ],
+          "historical_data": "None",
+          "monthly_limit": 2000,
+          "name": "Free",
+          "price": 0,
+          "price_display": "$0/month"
+        },
+        "professional": {
+          "api_key_required": true,
+          "bulk_limit": 500,
+          "bulk_requests_per_day": 100,
+          "daily_limit": 5000,
+          "features": [
+            "All Free features",
+            "Advanced security analysis",
+            "Bulk processing (500 URLs per job)",
+            "30-day historical data",
+            "Analytics dashboard",
+            "Email support",
+            "99.5% uptime SLA"
+          ],
+          "historical_data": "30 days",
+          "monthly_limit": 100000,
+          "name": "Professional",
+          "price": 49,
+          "price_display": "$49/month"
+        },
+        "unlimited": {
+          "api_key_required": true,
+          "bulk_limit": -1,
+          "bulk_requests_per_day": "Unlimited",
+          "contact_sales": true,
+          "daily_limit": -1,
+          "features": [
+            "All Enterprise features",
+            "Unlimited bulk processing",
+            "Unlimited historical data",
+            "White-label solutions",
+            "On-premise deployment option",
+            "24/7 dedicated support team",
+            "99.99% uptime SLA",
+            "Custom integrations and development"
+          ],
+          "historical_data": "Unlimited",
+          "monthly_limit": -1,
+          "name": "Unlimited",
+          "price": "custom",
+          "price_display": "Custom pricing"
+        }
+      },
+      "notes": "4 tiers"
+    },
+    {
+      "num": 19,
+      "endpoint": "/api/pricing/tiers",
+      "method": "GET",
+      "status": 200,
+      "time": "3ms",
+      "passed": true,
+      "notes": "Pricing tiers"
+    },
+    {
+      "num": 20,
+      "endpoint": "/api/dashboard/stats",
+      "method": "GET",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "Dashboard (Auth required)"
+    },
+    {
+      "num": 21,
+      "endpoint": "/api/analytics/history",
+      "method": "GET",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "History (Auth required)"
+    },
+    {
+      "num": 22,
+      "endpoint": "/api/analyze/bot-test",
+      "method": "POST",
+      "status": 200,
+      "time": "1119ms",
+      "passed": true,
+      "notes": "Bot test: 0 bots tested"
+    },
+    {
+      "num": 23,
+      "endpoint": "/api/robots-txt/check",
+      "method": "POST",
+      "status": 200,
+      "time": "159ms",
+      "passed": true,
+      "notes": "Robots.txt: Found"
+    },
+    {
+      "num": 24,
+      "endpoint": "/api/export/csv",
+      "method": "POST",
+      "status": 200,
+      "time": "170ms",
+      "passed": true,
+      "notes": "CSV export"
+    },
+    {
+      "num": 25,
+      "endpoint": "/api/analyze/link-types",
+      "method": "POST",
+      "status": 401,
+      "time": "3ms",
+      "passed": true,
+      "notes": "Link types (Auth required)"
+    },
+    {
+      "num": 26,
+      "endpoint": "/api/analyze/network-diversity",
+      "method": "POST",
+      "status": 401,
+      "time": "3ms",
+      "passed": true,
+      "notes": "Network diversity (Auth required)"
+    },
+    {
+      "num": 27,
+      "endpoint": "/api/analyze/seo-link-juice",
+      "method": "POST",
+      "status": 401,
+      "time": "3ms",
+      "passed": true,
+      "notes": "SEO link juice (Auth required)"
+    },
+    {
+      "num": 28,
+      "endpoint": "/api/analyze/domain-trust",
+      "method": "POST",
+      "status": 200,
+      "time": "7ms",
+      "passed": true,
+      "notes": "Trust: N/A/100"
+    },
+    {
+      "num": 29,
+      "endpoint": "/api/analyze/with-webhook",
+      "method": "POST",
+      "status": 200,
+      "time": "102ms",
+      "passed": true,
+      "notes": "Webhook analysis"
+    },
+    {
+      "num": 30,
+      "endpoint": "/api/analyze/with-auth",
+      "method": "POST",
+      "status": 200,
+      "time": "147ms",
+      "passed": true,
+      "notes": "Auth analysis"
+    },
+    {
+      "num": 31,
+      "endpoint": "/api/analyze/comprehensive",
+      "method": "POST",
+      "status": 401,
+      "time": "4ms",
+      "passed": true,
+      "notes": "Comprehensive (Auth required)"
+    },
+    {
+      "num": 32,
+      "endpoint": "/api/decode-shortener",
+      "method": "POST",
+      "status": 200,
+      "time": "1531ms",
+      "passed": true,
+      "notes": "Decoded: N/A"
+    },
+    {
+      "num": 33,
+      "endpoint": "/api/detect-redirect-loop",
+      "method": "POST",
+      "status": 200,
+      "time": "649ms",
+      "passed": true,
+      "notes": "Loop: No"
+    },
+    {
+      "num": 34,
+      "endpoint": "/api/generate-redirect-rules",
+      "method": "POST",
+      "status": 400,
+      "time": "5ms",
+      "passed": true,
+      "notes": "Needs fix"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "testDate": "2025-10-18T15:42:12.522484",
+  "baseUrl": "http://localhost:5000",
+  "totalTests": 34,
+  "passed": 28,
+  "failed": 6,
+  "successRate": "82.4%",
+  "realUrlsTested": {
+    "bitly": "https://bit.ly/3nxjKQ2",
+    "tinyurl": "https://tinyurl.com/2p8ztn6r",
+    "youtube_short": "https://youtu.be/dQw4w9WgXcQ",
+    "http_to_https": "http://github.com",
+    "google_redirect": "http://google.com",
+    "www_redirect": "http://www.github.com",
+    "potential_phishing": "http://example.com/login",
+    "amazon_affiliate": "https://amazon.com/dp/B08N5WRWNW",
+    "multi_hop": "http://httpstat.us/301",
+    "google_robots": "https://google.com",
+    "github_robots": "https://github.com",
+    "trusted_domain": "https://github.com",
+    "untrusted_domain": "http://example.com",
+    "responsive_site": "https://github.com",
+    "real_shortener_1": "https://bit.ly/redirect-test",
+    "real_shortener_2": "https://goo.gl/maps/test"
+  },
+  "results": [
+    {
+      "testNumber": 1,
+      "endpoint": "/",
+      "method": "GET",
+      "status": 200,
+      "responseTime": "8ms",
+      "passed": true,
+      "notes": "Welcome page",
+      "dataSample": null
+    },
+    {
+      "testNumber": 2,
+      "endpoint": "/health",
+      "method": "GET",
+      "status": 200,
+      "responseTime": "9ms",
+      "passed": true,
+      "notes": "Status: healthy",
+      "dataSample": null
+    },
+    {
+      "testNumber": 3,
+      "endpoint": "/analyze",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "605ms",
+      "passed": true,
+      "notes": "Analyzed: http://google.com \u2192 http://www.google.com/ (2 hops)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 4,
+      "endpoint": "/api/analyze",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "236ms",
+      "passed": true,
+      "notes": "HTTP\u2192HTTPS: http://github.com \u2192 https://github.com/",
+      "dataSample": null
+    },
+    {
+      "testNumber": 5,
+      "endpoint": "/api/analyze/advanced",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Advanced analysis (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 6,
+      "endpoint": "/api/analytics/domain/github.com",
+      "method": "GET",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Domain analytics (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 7,
+      "endpoint": "/api/analytics/url/{url}",
+      "method": "GET",
+      "status": 401,
+      "responseTime": "5ms",
+      "passed": true,
+      "notes": "URL analytics (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 8,
+      "endpoint": "/api/seo/analysis",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "5ms",
+      "passed": true,
+      "notes": "SEO analysis (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 9,
+      "endpoint": "/api/browser/quick-check",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "6ms",
+      "passed": true,
+      "notes": "Browser check (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 10,
+      "endpoint": "/api/batch/quick-analyze",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Batch quick analyze (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 11,
+      "endpoint": "/api/analyze/malware-scan",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "3ms",
+      "passed": true,
+      "notes": "Malware scan (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 12,
+      "endpoint": "/api/network/detection",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Network detection (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 13,
+      "endpoint": "/api/revenue/optimization",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Revenue optimization (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 14,
+      "endpoint": "/api/analyze/mobile-comparison",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Mobile comparison (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 15,
+      "endpoint": "/api/bulk/analyze",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "519ms",
+      "passed": true,
+      "notes": "Bulk analysis completed",
+      "dataSample": null
+    },
+    {
+      "testNumber": 16,
+      "endpoint": "/api/validate",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "454ms",
+      "passed": true,
+      "notes": "Validated 3 URLs, 3 accessible",
+      "dataSample": null
+    },
+    {
+      "testNumber": 17,
+      "endpoint": "/api/security/enhanced-scan",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "853ms",
+      "passed": true,
+      "notes": "Security scan, risk score: 40/100, threats: 0",
+      "dataSample": null
+    },
+    {
+      "testNumber": 18,
+      "endpoint": "/api/pricing",
+      "method": "GET",
+      "status": 200,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Pricing tiers: 4",
+      "dataSample": null
+    },
+    {
+      "testNumber": 19,
+      "endpoint": "/api/pricing/tiers",
+      "method": "GET",
+      "status": 200,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Detailed pricing tiers: 4",
+      "dataSample": null
+    },
+    {
+      "testNumber": 20,
+      "endpoint": "/api/dashboard/stats",
+      "method": "GET",
+      "status": 401,
+      "responseTime": "3ms",
+      "passed": true,
+      "notes": "Dashboard stats (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 21,
+      "endpoint": "/api/analytics/history",
+      "method": "GET",
+      "status": 401,
+      "responseTime": "6ms",
+      "passed": true,
+      "notes": "Analytics history (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 22,
+      "endpoint": "/api/analyze/bot-test",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "1283ms",
+      "passed": false,
+      "notes": "Tested 0 bot types",
+      "dataSample": null
+    },
+    {
+      "testNumber": 23,
+      "endpoint": "/api/robots-txt/check",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "156ms",
+      "passed": true,
+      "notes": "Robots.txt found: True",
+      "dataSample": null
+    },
+    {
+      "testNumber": 24,
+      "endpoint": "/api/export/csv",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "167ms",
+      "passed": true,
+      "notes": "CSV export generated",
+      "dataSample": null
+    },
+    {
+      "testNumber": 25,
+      "endpoint": "/api/analyze/link-types",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "Link types (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 26,
+      "endpoint": "/api/analyze/network-diversity",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "3ms",
+      "passed": true,
+      "notes": "Network diversity (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 27,
+      "endpoint": "/api/analyze/seo-link-juice",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "4ms",
+      "passed": true,
+      "notes": "SEO link juice (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 28,
+      "endpoint": "/api/analyze/domain-trust",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "5ms",
+      "passed": false,
+      "notes": "Trust score: N/A/100 for https://github.com",
+      "dataSample": null
+    },
+    {
+      "testNumber": 29,
+      "endpoint": "/api/analyze/with-webhook",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "147ms",
+      "passed": true,
+      "notes": "Webhook analysis, final URL: N/A",
+      "dataSample": null
+    },
+    {
+      "testNumber": 30,
+      "endpoint": "/api/analyze/with-auth",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "136ms",
+      "passed": false,
+      "notes": "Auth analysis: N/A",
+      "dataSample": null
+    },
+    {
+      "testNumber": 31,
+      "endpoint": "/api/analyze/comprehensive",
+      "method": "POST",
+      "status": 401,
+      "responseTime": "5ms",
+      "passed": true,
+      "notes": "Comprehensive analysis (Auth required)",
+      "dataSample": null
+    },
+    {
+      "testNumber": 32,
+      "endpoint": "/api/decode-shortener",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "1553ms",
+      "passed": false,
+      "notes": "Decoded: https://youtu.be/dQw4w9WgXcQ \u2192 N/A",
+      "dataSample": null
+    },
+    {
+      "testNumber": 33,
+      "endpoint": "/api/detect-redirect-loop",
+      "method": "POST",
+      "status": 200,
+      "responseTime": "745ms",
+      "passed": false,
+      "notes": "Loop detected: False",
+      "dataSample": null
+    },
+    {
+      "testNumber": 34,
+      "endpoint": "/api/generate-redirect-rules",
+      "method": "POST",
+      "status": 400,
+      "responseTime": "4ms",
+      "passed": false,
+      "notes": "Generated nginx rules for http://github.com",
+      "dataSample": null
+    }
+  ]
+}

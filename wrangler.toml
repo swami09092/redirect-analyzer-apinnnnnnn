@@ -1,0 +1,96 @@
+# Cloudflare Workers Configuration
+# Redirect Chain Analyzer API - 100% JavaScript Implementation
+
+name = "redirect-analyzer-apinnnnnnn"
+main = "worker.js"
+compatibility_date = "2024-10-01"
+
+# =============================================================================
+# KV NAMESPACES - Data Storage
+# =============================================================================
+# These replace SQLite/PostgreSQL from the Python version
+# 
+# SETUP INSTRUCTIONS:
+# 1. Run: wrangler kv:namespace create RATE_LIMITS
+# 2. Run: wrangler kv:namespace create RATE_LIMITS --preview
+# 3. Copy the IDs and paste below
+# 4. Repeat for ANALYTICS_DATA and API_KEYS
+# 
+# Example output:
+# { binding = "RATE_LIMITS", id = "a1b2c3d4..." }
+# =============================================================================
+
+[[kv_namespaces]]
+binding = "RATE_LIMITS"
+id = "3192b01eee444bda91358156ffa319fc"              # Replace with actual ID
+preview_id = "YOUR_RATE_LIMITS_PREVIEW_KV_ID"  # Replace with actual preview ID
+
+[[kv_namespaces]]
+binding = "ANALYTICS_DATA" 
+id = "7ce85137dc54457dac65190702e50f63"                # Replace with actual ID
+preview_id = "YOUR_ANALYTICS_PREVIEW_KV_ID"    # Replace with actual preview ID
+
+[[kv_namespaces]]
+binding = "API_KEYS"
+id = "4b80678966734f36a6595f99876a078a"                 # Replace with actual ID
+preview_id = "YOUR_API_KEYS_PREVIEW_KV_ID"     # Replace with actual preview ID
+
+# =============================================================================
+# ENVIRONMENT VARIABLES
+# =============================================================================
+# These control the behavior of your Worker
+
+[vars]
+ENVIRONMENT = "production"
+API_VERSION = "2.0.0"
+MAX_REDIRECTS = "15"        # Maximum number of redirects to follow
+REQUEST_TIMEOUT = "8000"    # Timeout in milliseconds (8 seconds)
+
+# =============================================================================
+# WORKER LIMITS
+# =============================================================================
+# Cloudflare Workers CPU time limits
+
+[limits]
+cpu_ms = 50000  # 50 seconds CPU time limit per request
+
+# =============================================================================
+# DEVELOPMENT ENVIRONMENT
+# =============================================================================
+# Use this for local testing: wrangler dev
+
+[env.development]
+name = "redirect-analyzer-api-dev"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+API_VERSION = "2.0.0-dev"
+MAX_REDIRECTS = "10"        # Fewer redirects for faster testing
+
+# =============================================================================
+# PRODUCTION ENVIRONMENT
+# =============================================================================
+# Deploy to production: wrangler deploy --env production
+# Add your custom domain routes below
+
+[env.production]
+name = "redirect-analyzer-api-prod"
+
+# Uncomment and configure your custom domain:
+# routes = [
+#   { pattern = "api.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+[env.production.vars]
+ENVIRONMENT = "production"
+API_VERSION = "2.0.0"
+MAX_REDIRECTS = "15"
+
+# =============================================================================
+# DEPLOYMENT COMMANDS
+# =============================================================================
+# Local testing:   wrangler dev
+# Deploy default:  wrangler deploy
+# Deploy prod:     wrangler deploy --env production
+# View logs:       wrangler tail
+# =============================================================================

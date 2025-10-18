@@ -1,0 +1,100 @@
+# ============================================================================
+# CLOUDFLARE WORKERS PROJECT
+# ============================================================================
+# This project is now 100% Cloudflare Workers - No Python code is used
+# All Python files have been archived in python-backup-old-version/
+
+# ============================================================================
+# ARCHIVED FILES (Old Python Version - Not Used)
+# ============================================================================
+python-backup-old-version/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.py
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Database (Old SQLite/PostgreSQL - replaced by Cloudflare KV)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+data/
+
+# ============================================================================
+# CLOUDFLARE WORKERS DEVELOPMENT
+# ============================================================================
+.wrangler/
+wrangler.toml.backup
+.dev.vars
+worker/
+
+# ============================================================================
+# ENVIRONMENT & SECRETS
+# ============================================================================
+.env
+.env.local
+.env.*.local
+
+# ============================================================================
+# NODE/NPM (Optional)
+# ============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================================================
+# IDE & EDITORS
+# ============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+*.code-workspace
+
+# ============================================================================
+# OPERATING SYSTEM
+# ============================================================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+
+# ============================================================================
+# LOGS & TESTING
+# ============================================================================
+*.log
+/tmp/
+logs/
+test_results_*/
+coverage/
+
+# ============================================================================
+# BACKUPS & MISC
+# ============================================================================
+*.backup
+*.bak
+*.zip
+*.tar.gz
+
+# ============================================================================
+# KEEP THESE ESSENTIAL FILES
+# ============================================================================
+# !worker.js                    - Main Cloudflare Worker (REQUIRED)
+# !wrangler.toml                - Cloudflare configuration (REQUIRED)  
+# !QUICKSTART.md                - Quick deployment guide
+# !README.md                    - Project documentation
+# !package.json                 - Optional npm config
+# !test-cloudflare-endpoints.sh - Testing script
+# !deploy-to-cloudflare-workers.sh - Deployment automation
